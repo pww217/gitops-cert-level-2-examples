@@ -6,6 +6,11 @@ metadata:
   namespace: example02
   annotations:
     creation: at-{{ now | date "20160102150405" }}
+  ignoreDifferences:
+  - group: apps
+    kind: Deployment
+    jsonPointers:
+    - /metadata/annotations/creation
 spec:
   selector:
     matchLabels:
